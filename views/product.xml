@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Form creation and tree -->
+        <record id="custum_product_tree" model="ir.ui.view">
+            <field name="name">custum_products.products_details.tree</field>
+            <field name="model">custum_products.products_details</field>
+            <field name="priority" eval="9" />
+            <field name="arch" type="xml">
+                <tree string="Custum Product">
+                    <field name="name" />
+                    <field name="photo" />
+                    <field name="stock" />                 
+                    <field name="color" />                 
+                </tree>
+            </field>
+        </record>
+
+        <record id="custum_product_form" model="ir.ui.view">
+            <field name="name">custum_products.products_details.form</field>
+            <field name="model">custum_products.products_details</field>
+            <field name="priority" eval="9" />
+            <field name="arch" type="xml">
+                <form string="custum products">
+                    <sheet>
+                        <field name="photo" widget="image" class="oe_left oe_avatar" />
+                        <div class="oe_title">
+                            <h1>
+                                <table>
+                                    <tr>
+                                        <td style="padding-right:10px;"><field name="name" required="1" placeholder="Product name"/></td>
+                                    </tr>
+                                </table>
+                            </h1>
+                        </div>
+                        <notebook colspan="4">
+                            <page name="product_information"
+                                string=" product details">
+                                <group col="4" colspan="4"
+                                    name="product_detail">
+                                    <field name="stock" />
+                                    <field name="color"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="custum_product_search" model="ir.ui.view">
+        <field name="name">custum_products.products_details.search</field>
+        <field name="model">custum_products.products_details</field>
+        <field name="arch" type="xml">
+            <search string="Search Products">
+                <field name="name"/>
+                
+                <field name="stock" />
+                 <separator/>
+                
+                
+                <filter string="Red" name="red" domain="[('color', '=', 'Red')]"/>
+                <filter string="Blue" name="blue" domain="[('color', '=', 'Blue')]"/>
+                <filter string="Green" name="green" domain="[('color', '=', 'Green')]"/>
+                <separator/>
+                
+                <group expand="1" string="Group By">
+                    <filter string="Color" name="color" domain="[]"  context="{'group_by': 'color'}"/>
+                    <filter string="Stock" name="stock" domain="[]"  context="{'group_by': 'stock'}"/>
+                    
+                </group>
+           </search>
+        </field>
+    </record>
+
+
+
+
+
+
+        <record model="ir.actions.act_window" id="action_view_cust_product">
+            <field name="name">Products_Details</field>
+            <field name="res_model">custum_products.products_details</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create new product
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem id="custum_product_menu"
+                name="Custum product"
+                sequence="20"/>
+
+        <menuitem id="product_view_menu1"
+                name="Product list"
+                parent="custum_product_menu"
+                sequence="20"/>
+        <menuitem id="product_view_menu2"
+                name="Product type"
+                parent="product_view_menu1"
+                action="action_view_cust_product"
+                sequence="20"/>
+    </data>
+</odoo>
+
+
