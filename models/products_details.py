@@ -7,7 +7,7 @@ class ProductDetailsRecords(models.Model):
     photo = fields.Binary(string='Product Photo')
     stock = fields.Integer(string='Number of Stock', required=True)
     color = fields.Selection([
-        ('other', 'Regular color'),
+        ('other', 'Regulars'),
         ('Yellow', 'Yellow'),
         ('Blue', 'Blue'),
         ('Green', 'Green'),
