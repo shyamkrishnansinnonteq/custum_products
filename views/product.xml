@@ -60,7 +60,7 @@
                  <separator/>
                 
                 
-                <filter string="Yellow" name="yellow" domain="[('color', '=', 'Yellow')]"/>
+                <filter string="Red" name="Red" domain="[('color', '=', 'Red')]"/>
                 <filter string="Blue" name="blue" domain="[('color', '=', 'Blue')]"/>
                 <filter string="Green" name="green" domain="[('color', '=', 'Green')]"/>
                 <separator/>
