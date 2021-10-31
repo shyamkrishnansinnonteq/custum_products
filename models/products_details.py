@@ -8,7 +8,7 @@ class ProductDetailsRecords(models.Model):
     stock = fields.Integer(string='Number of Stock', required=True)
     color = fields.Selection([
         ('other', 'Regular'),
-        ('Red', 'Red'),
+        ('Yellow', 'Yellow'),
         ('Blue', 'Blue'),
         ('Green', 'Green'),
         ], required=True, default='other')
